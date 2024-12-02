@@ -2,6 +2,7 @@ package com.project.galeria_imatges;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -65,9 +66,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent data = result.getData();
-                            Uri uri = data.getData();
-                            ImageView imageView = findViewById(R.id.imageView);
-                            imageView.setImageURI(uri);
+                            Bundle extras = data.getExtras();
+                            if (extras!=null){
+                                Bitmap imagenCamara = (Bitmap) extras.get("data");
+                                ImageView imageView = findViewById(R.id.imageView);
+
+                                imageView.setImageBitmap(imagenCamara);
+                            }
 
                         }}
 
