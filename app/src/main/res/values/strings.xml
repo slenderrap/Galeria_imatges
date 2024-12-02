@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Galeria_imatges</string>
+    <string name="foto_camera">Foto camera</string>
+    <string name="foto_galeria">Foto galeria</string>
 </resources>
